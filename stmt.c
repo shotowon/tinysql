@@ -19,10 +19,10 @@ prepare_stmt_result prepare_stmt(char *stmt_str, stmt *s) {
 void execute_stmt(stmt *s) {
 	switch(s->type) {
 		case(STMT_INSERT):
-		printf("INSERT");
+		printf("INSERT\n");
 		break;
 		case(STMT_SELECT):
-		printf("SELECT");
+		printf("SELECT\n");
 		break;
 	}
 }
