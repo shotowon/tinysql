@@ -1,5 +1,6 @@
 #include "repl.h"
 #include "metacmd.h"
+#include "stmt.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -54,6 +55,18 @@ int repl() {
 			}
 			continue;
 		}
+
+		stmt s;
+		switch(prepare_stmt(buf->buf, &s)) {
+			case (PREPARE_SUCCESS):
+			break;
+			case (PREPARE_UNRECOGNIZED_STMT):
+				printf("error: unrecognized statement - '%s'\n", buf->buf);
+			continue;
+		}
+
+		execute_stmt(&s);
+		printf("executed\n");
 	}
 }
 
