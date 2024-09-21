@@ -1,1 +1,1 @@
-# tiynsql
+# tinysql
