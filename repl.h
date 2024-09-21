@@ -20,5 +20,6 @@ int read_input(input_buf*);
 void print_prompt();
 
 int repl();
+void repl_exit(input_buf* buf);
 
 #endif

@@ -44,10 +44,12 @@ int repl() {
 		}
 
 		if (!strcmp(buf->buf, ".exit")) {
-			close_input_buf(buf);
+			repl_exit(buf);
 			return 0;
 		} else {
 			printf("error: unrecognized command - '%s'\n", buf->buf);
 		}
 	}
 }
+
+void repl_exit(input_buf *buf) { close_input_buf(buf); }
