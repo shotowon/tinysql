@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 input_buf* new_input_buf() {
 	input_buf *buf = malloc(sizeof(input_buf));
@@ -30,4 +31,23 @@ int read_input(input_buf *buf) {
 
 void print_prompt() {
 	printf("db > ");
+}
+
+int repl() {
+	input_buf* buf = new_input_buf();
+	
+	while(1) {
+		print_prompt();
+		if(read_input(buf)) {
+			close_input_buf(buf);
+			return 1;
+		}
+
+		if (!strcmp(buf->buf, ".exit")) {
+			close_input_buf(buf);
+			return 0;
+		} else {
+			printf("error: unrecognized command - '%s'\n", buf->buf);
+		}
+	}
 }

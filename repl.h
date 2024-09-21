@@ -19,4 +19,6 @@ int read_input(input_buf*);
 
 void print_prompt();
 
+int repl();
+
 #endif
