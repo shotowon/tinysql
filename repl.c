@@ -1,5 +1,5 @@
 #include "repl.h"
-#include "metacommand.h"
+#include "metacmd.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -45,11 +45,11 @@ int repl() {
 		}
 
 		if (buf->buf[0] == '.') {
-			switch (do_meta_command(buf->buf)) {
-				case META_COMMAND_EXIT:
+			switch (do_meta_cmd(buf->buf)) {
+				case META_CMD_EXIT:
 					repl_exit(buf);
 					return 0;
-				case META_COMMAND_UNRECOGNIZED_COMMAND:
+				case META_CMD_UNRECOGNIZED_CMD:
 					printf("error: unrecognized command - '%s'\n", buf->buf);
 			}
 			continue;
