@@ -17,4 +17,6 @@ typedef struct {
 
 prepare_stmt_result prepare_stmt(char *stmt_str, stmt *s);
 
+void execute_stmt(stmt*);
+
 #endif
