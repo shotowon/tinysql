@@ -1,4 +1,5 @@
 #include "repl.h"
+#include "metacommand.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -43,11 +44,15 @@ int repl() {
 			return 1;
 		}
 
-		if (!strcmp(buf->buf, ".exit")) {
-			repl_exit(buf);
-			return 0;
-		} else {
-			printf("error: unrecognized command - '%s'\n", buf->buf);
+		if (buf->buf[0] == '.') {
+			switch (do_meta_command(buf->buf)) {
+				case META_COMMAND_EXIT:
+					repl_exit(buf);
+					return 0;
+				case META_COMMAND_UNRECOGNIZED_COMMAND:
+					printf("error: unrecognized command - '%s'\n", buf->buf);
+			}
+			continue;
 		}
 	}
 }
