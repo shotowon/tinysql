@@ -17,4 +17,6 @@ void close_input_buf(input_buf*);
 // reading input into input buffer
 int read_input(input_buf*);
 
+void print_prompt();
+
 #endif

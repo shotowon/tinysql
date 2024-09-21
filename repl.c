@@ -27,3 +27,7 @@ int read_input(input_buf *buf) {
 	buf->buf[buf->input_len] = 0;
 	return 0;	
 }
+
+void print_prompt() {
+	printf("db > ");
+}
