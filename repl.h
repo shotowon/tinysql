@@ -14,4 +14,7 @@ input_buf* new_input_buf();
 // frees memory of input_buf
 void close_input_buf(input_buf*);
 
+// reading input into input buffer
+int read_input(input_buf*);
+
 #endif
