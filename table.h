@@ -30,5 +30,6 @@ const uint32_t EMAIL_OFFSET = USERNAME_OFFSET + USERNAME_SIZE;
 const uint32_t ROW_SIZE = EMAIL_OFFSET + EMAIL_SIZE;
 
 void serialize_row(row *src, void *dst);
+void deserialize_row(void *src, row *dst);
 
 #endif
