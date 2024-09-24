@@ -1,6 +1,8 @@
 #ifndef TABLE_H
 #define TABLE_H
 
+#include <stdint.h>
+
 // for now table will be hardcoded
 // columns:
 // id: integer
@@ -11,7 +13,7 @@
 #define COL_EMAIL_LENGTH 255
 
 typedef struct {
-	int id;
+	uint32_t id;
 	char username[COL_USERNAME_LENGTH];
 	char email[COL_EMAIL_LENGTH];
 } row;
