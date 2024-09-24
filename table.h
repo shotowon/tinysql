@@ -10,4 +10,10 @@
 #define COL_USERNAME_LENGTH 32
 #define COL_EMAIL_LENGTH 255
 
+typedef struct {
+	int id;
+	char username[COL_USERNAME_LENGTH];
+	char email[COL_EMAIL_LENGTH];
+} row;
+
 #endif
