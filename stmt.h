@@ -1,7 +1,7 @@
 #ifndef STMT_H
 #define STMT_H
 
-#include "table.h"
+#include "row.h"
 
 typedef enum {
 	PREPARE_SUCCESS, 

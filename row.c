@@ -1,6 +1,6 @@
 #include <string.h>
 
-#include "table.h"
+#include "row.h"
 
 void serialize_row(row *src, void *dst) {
 	memcpy(dst + ID_OFFSET, &(src->id), ID_SIZE);
