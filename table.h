@@ -4,6 +4,7 @@
 #include "stmt.h"
 
 #include <stdint.h>
+#include <stddef.h>
 
 #define MAX_PAGES (uint32_t)100
 #define PAGE_SIZE (uint32_t) 4096
@@ -23,5 +24,7 @@ typedef struct {
 execute_result execute_insert(table*, stmt *s);
 execute_result execute_select(table*, stmt *s);
 execute_result execute_stmt(table*, stmt *s);
+
+void* row_slot(table*, uint32_t row_num);
 
 #endif
