@@ -17,8 +17,13 @@ execute_result execute_stmt(table *t, stmt *s) {
 
 execute_result execute_insert(table *t, stmt *s) {
 	if (t->rows >= TABLE_MAX_ROWS) {
-
+		return EXECUTE_TABLE_FULL;
 	}
+	
+	row *row_to_insert = &(s->row_to_insert);
+	serialize_row(row_to_insert, row_slot(t, t->rows));
+	t->rows++;
+
 	return EXECUTE_SUCCESS;
 }
 
