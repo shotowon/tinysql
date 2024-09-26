@@ -28,6 +28,13 @@ execute_result execute_insert(table *t, stmt *s) {
 }
 
 execute_result execute_select(table *t, stmt *s) {
+	row row;
+	
+	for (uint32_t i = 0; i < t->rows; i++) {
+		deserialize_row(row_slot(t, i), &row);
+		print_row(&row);
+	}
+
 	return EXECUTE_SUCCESS;
 }
 
