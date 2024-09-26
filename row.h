@@ -21,13 +21,13 @@ typedef struct {
 } row;
 
 // representation of a row
-static const uint32_t ID_SIZE = size_of_attr(row, id);
-static const uint32_t USERNAME_SIZE = size_of_attr(row, username);
-static const uint32_t EMAIL_SIZE = size_of_attr(row, email);
-static const uint32_t ID_OFFSET = 0;
-static const uint32_t USERNAME_OFFSET = ID_OFFSET + ID_SIZE;
-static const uint32_t EMAIL_OFFSET = USERNAME_OFFSET + USERNAME_SIZE;
-static const uint32_t ROW_SIZE = EMAIL_OFFSET + EMAIL_SIZE;
+#define ID_SIZE size_of_attr(row, id)
+#define USERNAME_SIZE size_of_attr(row, username)
+#define EMAIL_SIZE size_of_attr(row, email)
+#define ID_OFFSET 0
+#define USERNAME_OFFSET ID_OFFSET + ID_SIZE
+#define EMAIL_OFFSET USERNAME_OFFSET + USERNAME_SIZE
+#define ROW_SIZE EMAIL_OFFSET + EMAIL_SIZE
 
 void serialize_row(row *src, void *dst);
 void deserialize_row(void *src, row *dst);
