@@ -21,6 +21,9 @@ typedef struct {
 	void* pages[MAX_PAGES];
 } table;
 
+table* table_new();
+void free_table(table*);
+
 execute_result execute_insert(table*, stmt *s);
 execute_result execute_select(table*, stmt *s);
 execute_result execute_stmt(table*, stmt *s);

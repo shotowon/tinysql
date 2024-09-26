@@ -3,6 +3,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+table* table_new() {
+	table *t = malloc(sizeof(table));
+	t->rows = 0;
+	for (uint32_t i = 0; i < MAX_PAGES; i++) {
+		t->pages[i] = NULL;
+	}
+
+	return t;
+}
+
+void free_table(table *t) {
+	for (uint32_t i = 0; t->pages[i] != NULL; i++) {
+		free(t->pages[i]);
+	}
+
+	free(t);
+}
+
 execute_result execute_stmt(table *t, stmt *s) {
 	switch(s->type) {
 		case(STMT_INSERT):
