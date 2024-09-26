@@ -1,6 +1,7 @@
 #include "repl.h"
 #include "metacmd.h"
 #include "stmt.h"
+#include "table.h"
 
 #include <stdlib.h>
 #include <stdio.h>

@@ -13,18 +13,11 @@ typedef enum {
 	STMT_SELECT
 } stmt_type;
 
-typedef enum {
-	EXECUTE_SUCCESS,
-	EXECUTE_TABLE_FULL,
-} execute_result;
-
 typedef struct {
 	stmt_type type;
 	row row_to_insert; // only used by insert stmt
 } stmt;
 
 prepare_stmt_result prepare_stmt(char *stmt_str, stmt *s);
-
-void execute_stmt(stmt*);
 
 #endif
