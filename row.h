@@ -31,5 +31,6 @@ static const uint32_t ROW_SIZE = EMAIL_OFFSET + EMAIL_SIZE;
 
 void serialize_row(row *src, void *dst);
 void deserialize_row(void *src, row *dst);
+void print_row(row* row);
 
 #endif
