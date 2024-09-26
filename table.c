@@ -6,12 +6,11 @@
 execute_result execute_stmt(table *t, stmt *s) {
 	switch(s->type) {
 		case(STMT_INSERT):
-		printf("INSERT\n");
-		break;
+			return execute_insert(t, s);
 		case(STMT_SELECT):
-		printf("SELECT\n");
-		break;
+			return execute_select(t, s);
 	}
+
 	return EXECUTE_SUCCESS;
 }
 
